@@ -296,6 +296,28 @@
 <script type="text/javascript">
   new RDStationForms('nova-lp-infantil-claude-48d0a8c43f89a366f79b', 'UA-131910150-1').createForm();
 </script>
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var d = new Date();
+        var payload = {
+          event_type: 'CONVERSION',
+          event_family: 'CDP',
+          payload: {
+            conversion_identifier: 'clique-whatsapp-infantil',
+            email: '',
+            created_at: d.toISOString()
+          }
+        };
+        fetch('https://api.rd.services/platform/events?api_key=d19d3377db2be40123c0bdebeb53b462', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      });
+    });
+  });
+</script>
 </body>
 </html>
