@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Educação Infantil — Escola Granja Viana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul: #1e22aa; --amarelo: #fbc700; --cinza-claro: #f5f6fa; --texto: #222; }
+    body { font-family: 'Inter', sans-serif; color: var(--texto); background: #fff; }
+    header { background: #fff; padding: 20px 40px; display: flex; justify-content: center; align-items: center; border-bottom: 4px solid var(--amarelo); }
+    header img { height: 80px; width: auto; max-width: 260px; object-fit: contahin; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
+    .hero-img { position: relative; overflow: hidden; }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(30,34,170,0.35) 0%, transparent 60%); }
+    .hero-content { background: var(--azul); padding: 48px 48px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .hero-tag { display: inline-block; background: var(--amarelo); color: var(--azul); font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px; width: fit-content; }
+    .hero-content h1 { font-size: clamp(24px, 2.8vw, 36px); font-weight: 800; color: #fff; line-height: 1.25; }
+    .hero-content h1 span { color: var(--amarelo); }
+    .hero-content > p { font-size: clamp(16px, 1.8vw, 26px); color: #ccd0f0; line-height: 1.6; }
+    .hero-form-wrap { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+    .hero-form-wrap p { font-size: 14px; color: #fff; font-weight: 600; }
+    #nova-lp-infantil-claude-48d0a8c43f89a366f79b form { display: flex; flex-direction: column; gap: 10px; }
+    #nova-lp-infantil-claude-48d0a8c43f89a366f79b input,
+    #nova-lp-infantil-claude-48d0a8c43f89a366f79b select { width: 100% !important; padding: 12px 14px !important; border-radius: 8px !important; border: none !important; font-size: 15px !important; font-family: 'Inter', sans-serif !important; background: #fff !important; color: #333 !important; }
+    #nova-lp-infantil-claude-48d0a8c43f89a366f79b input[type="submit"],
+    #nova-lp-infantil-claude-48d0a8c43f89a366f79b button[type="submit"] { background: var(--amarelo) !important; color: var(--azul) !important; font-weight: 800 !important; font-size: 16px !important; border: none !important; border-radius: 8px !important; padding: 14px 20px !important; cursor: pointer !important; width: 100% !important; margin-top: 4px !important; }
+    #nova-lp-infantil-claude-48d0a8c43f89a366f79b label { color: #fff !important; font-size: 13px !important; font-weight: 500 !important; }
+    .btn-whatsapp { background: #25D366; color: #fff; font-weight: 700; font-size: 15px; border: none; border-radius: 8px; padding: 13px 20px; cursor: pointer; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background .2s; }
+    .btn-whatsapp:hover { background: #1dbc58; }
+    .credibilidade { background: #fff; padding: 48px 40px; display: flex; justify-content: center; gap: 0; flex-wrap: wrap; border-top: 1px solid #e8eaf5; border-bottom: 1px solid #e8eaf5; }
+    .cred-item { text-align: center; padding: 16px 40px; flex: 1; min-width: 160px; border-right: 1px solid #e0e4f5; }
+    .cred-item:last-child { border-right: none; }
+    .cred-item strong { display: block; font-size: 30px; font-weight: 800; color: var(--azul); margin-bottom: 6px; }
+    .cred-item span { font-size: 16px; color: #555; line-height: 1.4; }
+    .cred-item .cred-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-title { font-size: clamp(22px, 2.8vw, 32px); font-weight: 800; color: var(--azul); text-align: center; margin-bottom: 12px; }
+    .section-title span { color: var(--amarelo); }
+    .section-subtitle { text-align: center; color: #555; font-size: 16px; max-width: 640px; margin: 0 auto 48px; line-height: 1.7; }
+    .diferenciais { background: var(--cinza-claro); }
+    .diferenciais-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+    .dif-card { background: #fff; border-radius: 14px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,.06); border-top: 4px solid var(--amarelo); transition: transform .2s, box-shadow .2s; }
+    .dif-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.10); }
+    .dif-icon { font-size: 36px; margin-bottom: 14px; }
+    .dif-card h3 { font-size: 17px; font-weight: 700; color: var(--azul); margin-bottom: 8px; }
+    .dif-card p { font-size: 14px; color: #666; line-height: 1.65; }
+    .video-section { background: #fff; }
+    .video-wrap { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(30,34,170,.15); max-width: 800px; margin: 0 auto; aspect-ratio: 16/9; }
+    .video-wrap iframe { width: 100%; height: 100%; border: none; }
+    .galeria { background: var(--cinza-claro); }
+    .galeria-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .galeria-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; transition: transform .3s; }
+    .galeria-grid img:hover { transform: scale(1.03); }
+    .depoimentos { background: var(--azul); }
+    .depoimentos .section-title { color: #fff; }
+    .depoimentos .section-subtitle { color: #bfc4e8; }
+    .dep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .dep-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 14px; padding: 28px 24px; position: relative; }
+    .dep-card::before { content: '"'; position: absolute; top: 12px; left: 20px; font-size: 72px; color: var(--amarelo); opacity: .4; font-family: Georgia, serif; line-height: 1; }
+    .dep-card p { font-size: 15px; color: #dde0f5; line-height: 1.75; margin-top: 28px; font-style: italic; }
+    .dep-autor { margin-top: 20px; }
+    .dep-autor strong { display: block; font-size: 14px; color: var(--amarelo); font-weight: 700; }
+    .dep-autor span { font-size: 12px; color: #9099cc; }
+    .faq { background: #fff; }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    details { border: 1px solid #e0e4f0; border-radius: 10px; overflow: hidden; }
+    summary { padding: 18px 22px; font-weight: 600; font-size: 15px; color: var(--azul); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    summary::after { content: '+'; font-size: 22px; color: var(--amarelo); }
+    details[open] summary::after { content: '-'; }
+    details[open] summary { background: var(--cinza-claro); }
+    .faq-answer { padding: 16px 22px 20px; font-size: 14px; color: #555; line-height: 1.7; border-top: 1px solid #e0e4f0; }
+    .cta-final { background: linear-gradient(135deg, var(--azul) 60%, #2a30cc); padding: 80px 24px; text-align: center; }
+    .cta-final h2 { font-size: clamp(22px, 3vw, 34px); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .cta-final h2 span { color: var(--amarelo); }
+    .cta-final > p { color: #bfc4e8; font-size: 16px; margin-bottom: 36px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-buttons a { padding: 16px 32px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: .2s; }
+    .btn-amarelo { background: var(--amarelo); color: var(--azul); }
+    .btn-amarelo:hover { background: #e6b600; }
+    .btn-verde { background: #25D366; color: #fff; }
+    .btn-verde:hover { background: #1dbc58; }
+    footer { background: #0f1260; color: #9099cc; text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer a { color: var(--amarelo); text-decoration: none; }
+    footer .footer-logo { margin-bottom: 14px; }
+    footer .footer-logo img { height: 48px; width: auto; max-width: 180px; object-fit: contain; filter: brightness(0) invert(1); opacity: .7; }
+    .whatsapp-float { position: fixed; bottom: 24px; left: 24px; z-index: 999; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.25); text-decoration: none; transition: transform .2s; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-img { height: 260px; }
+      .hero-content { padding: 40px 24px; }
+      .hero-content > p { font-size: 17px; }
+      .credibilidade { padding: 32px 20px; }
+      .cred-item { border-right: none; border-bottom: 1px solid #e0e4f5; padding: 20px 16px; }
+      .cred-item:last-child { border-bottom: none; }
+      .cred-item span { font-size: 14px; }
+      .galeria-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 480px) {
+      .galeria-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body id="topo">
+
+  <header>
+    <img src="logo.png" alt="Escola Granja Viana" onerror="this.onerror=null;this.style.display='none';document.getElementById('logo-txt').style.display='block'" />
+    <span id="logo-txt" style="display:none;font-size:22px;font-weight:800;color:#1e22aa;">Escola Granja Viana</span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-img">
+      <img src="foto3.jpeg" alt="Professora com criancas da Educacao Infantil na EGV" />
+    </div>
+    <div class="hero-content">
+      <span class="hero-tag">Educacao Infantil - 1 a 5 anos</span>
+      <h1>Onde seu filho <span>descobre o mundo</span> brincando e cresce feliz</h1>
+      <p>Na EGV, cada crianca e acolhida e tratada como individuo unico. Cercados de natureza, nossos pequenos aprendem com alegria desde os primeiros passos - em Cotia, Granja Viana.</p>
+      <div class="hero-form-wrap">
+        <div role="main" id="nova-lp-infantil-claude-48d0a8c43f89a366f79b"></div>
+        <a href="https://wa.me/5511998165917?text=Oi!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Educa%C3%A7%C3%A3o%20Infantil%20da%20EGV." class="btn-whatsapp" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="credibilidade">
+    <div class="cred-item"><span class="cred-icon">&#127963;</span><strong>+48 anos</strong><span>de historia em Granja Viana</span></div>
+    <div class="cred-item"><span class="cred-icon">&#128118;</span><strong>1 a 5 anos</strong><span>faixa etaria atendida</span></div>
+    <div class="cred-item"><span class="cred-icon">&#127891;</span><strong>Infancia ao Medio</strong><span>trajetoria completa na mesma escola</span></div>
+    <div class="cred-item"><span class="cred-icon">&#127807;</span><strong>Cotia - SP</strong><span>cercada de natureza e verde</span></div>
+  </div>
+
+  <section class="section diferenciais">
+    <div class="section-inner">
+      <h2 class="section-title">Por que as familias <span>escolhem a EGV</span></h2>
+      <p class="section-subtitle">Uma escola que cuida do desenvolvimento integral do seu filho com atencao, afeto e metodo pedagogico solido desde o inicio.</p>
+      <div class="diferenciais-grid">
+        <div class="dif-card"><div class="dif-icon">&#127807;</div><h3>Ambiente cercado de natureza</h3><p>Arvores, passaros e animais silvestres fazem parte do dia a dia. As criancas desenvolvem desde cedo uma relacao especial com o meio ambiente.</p></div>
+        <div class="dif-card"><div class="dif-icon">&#127919;</div><h3>Ensino individualizado</h3><p>Cada crianca e vista como unica. Os professores conhecem profundamente como cada pequeno aprende e adaptam as atividades ao seu ritmo.</p></div>
+        <div class="dif-card"><div class="dif-icon">&#127925;</div><h3>Musica, movimento e artes</h3><p>Professores complementares de musica, movimento e educacao ambiental enriquecem a rotina e estimulam diferentes habilidades desde cedo.</p></div>
+        <div class="dif-card"><div class="dif-icon">&#127968;</div><h3>Ambiente acolhedor e seguro</h3><p>A EGV e reconhecida pelo calor humano de toda a equipe. A adaptacao acontece com respeito ao ritmo de cada crianca, de forma tranquila.</p></div>
+        <div class="dif-card"><div class="dif-icon">&#9200;</div><h3>Periodo regular e integral</h3><p>Periodo regular das 13h30 as 17h45. Integral disponivel a partir das 7h, com opcao de 2 a 5 dias por semana flexivel para sua rotina.</p></div>
+        <div class="dif-card"><div class="dif-icon">&#128218;</div><h3>Da infancia ao Ensino Medio</h3><p>Seu filho pode construir toda a trajetoria escolar na EGV, com a mesma cultura de valores e excelencia do inicio ao fim.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section video-section">
+    <div class="section-inner">
+      <h2 class="section-title">Conheca a <span>Educacao Infantil da EGV</span></h2>
+      <p class="section-subtitle">Veja como e o dia a dia das criancas na escola o espaco, as atividades e o cuidado de cada professor.</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/waaYVgDxpxA" title="Conheca a Educacao Infantil da Escola Granja Viana" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section galeria">
+    <div class="section-inner">
+      <h2 class="section-title">Momentos da <span>Educacao Infantil</span></h2>
+      <p class="section-subtitle">Aprender brincando, explorar a natureza, criar, se mover cada dia e uma nova descoberta na EGV.</p>
+      <div class="galeria-grid">
+        <img src="foto1.jpeg" alt="Criancas em atividade de jardinagem" />
+        <img src="foto2.jpeg" alt="Criancas explorando a terra e minhocas" />
+        <img src="foto3.jpeg" alt="Professora lendo para as criancas" />
+        <img src="foto4.jpeg" alt="Criancas cuidando das plantas" />
+        <img src="foto5.jpeg" alt="Projeto com dinossauros na sala de aula" />
+        <img src="foto6.jpeg" alt="Criancas em projeto interdisciplinar" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section depoimentos">
+    <div class="section-inner">
+      <h2 class="section-title">O que os <span>pais dizem</span></h2>
+      <p class="section-subtitle">Familias que confiam na EGV ha anos em suas proprias palavras.</p>
+      <div class="dep-grid">
+        <div class="dep-card">
+          <p>A EGV ja faz parte das nossas vidas desde 2015. Adoramos o acolhimento dado as criancas. Nosso cacula adora as aulas de movimento, musica e educacao ambiental, adora explorar os espacos da escola. So temos a agradecer pela parceria EGV!</p>
+          <div class="dep-autor"><strong>Laura Larrubia</strong><span>Mae de alunos da Educacao Infantil</span></div>
+        </div>
+        <div class="dep-card">
+          <p>Esse e o primeiro ano de nossos filhos na EGV e estamos muito satisfeitos. A escola foi maravilhosa no processo de adaptacao fluiu de forma natural. Gratidao por encontrar uma escola que respeita as individualidades e une valores tao importantes a aprendizagem.</p>
+          <div class="dep-autor"><strong>Luana Demitili</strong><span>Mae de aluno da Educacao Infantil</span></div>
+        </div>
+        <div class="dep-card">
+          <p>Na EGV, sinto que meus filhos nao sao apenas um numero. Eles sao conhecidos e cuidados por todos os colaboradores e professores. Isso sem falar na paixao que eles tem pela escola sentem falta das aulas ate nas ferias!</p>
+          <div class="dep-autor"><strong>Carol Negri</strong><span>Mae de alunos do Infantil e Fundamental I</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="section-inner">
+      <h2 class="section-title">Perguntas <span>frequentes</span></h2>
+      <p class="section-subtitle">Tudo que os pais mais querem saber antes de visitar a escola.</p>
+      <div class="faq-list">
+        <details><summary>Qual a faixa etaria atendida na Educacao Infantil?</summary><div class="faq-answer">A Educacao Infantil da EGV atende criancas de 1 a 5 anos. A escola nao possui bercario, portanto nao atende criancas abaixo de 1 ano. A partir dos 6 anos, os alunos ingressam no Ensino Fundamental I.</div></details>
+        <details><summary>Quais sao os horarios da Educacao Infantil?</summary><div class="faq-answer">O periodo regular funciona das 13h30 as 17h45. Para quem precisa de mais flexibilidade, ha o periodo integral disponivel a partir das 7h. As familias podem optar por 2, 3, 4 ou 5 dias de periodo integral por semana, com horario de entrada as 7h ou 9h.</div></details>
+        <details><summary>Como funciona a adaptacao das criancas?</summary><div class="faq-answer">A adaptacao e feita de forma gradual e respeitosa, acompanhada de perto por professores, orientadora educacional e coordenacao pedagogica. Toda a equipe trabalha para que cada crianca se sinta segura e acolhida no seu proprio ritmo.</div></details>
+        <details><summary>A escola tem atividades alem do horario regular?</summary><div class="faq-answer">Sim! No curriculo regular, as criancas ja tem aulas de movimento, musica e educacao ambiental com professores especializados. A escola tambem oferece extracurriculares como ballet, judo, futsal, volei e iniciacao esportiva.</div></details>
+        <details><summary>Meu filho pode estudar na EGV ate o Ensino Medio?</summary><div class="faq-answer">Sim. A EGV atende da Educacao Infantil ao Ensino Medio. Muitas familias percorrem toda a trajetoria escolar dentro da mesma escola, o que fortalece os vinculos e garante uma continuidade pedagogica consistente.</div></details>
+        <details><summary>Como faco para agendar uma visita a escola?</summary><div class="faq-answer">E simples! Preencha o formulario nesta pagina ou entre em contato pelo WhatsApp (11) 99816-5917. Nossa equipe vai agendar a melhor data para voce conhecer a escola pessoalmente.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <h2>Agende uma visita e <span>conheca a EGV</span> pessoalmente</h2>
+    <p>As vagas da Educacao Infantil sao limitadas. Fale com a gente e encontre o melhor momento para visitar a escola.</p>
+    <div class="cta-buttons">
+      <a href="#topo" class="btn-amarelo">Preencher formulario</a>
+      <a href="https://wa.me/5511998165917?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20para%20conhecer%20a%20Educa%C3%A7%C3%A3o%20Infantil%20da%20EGV." class="btn-verde" target="_blank">&#128172; Falar pelo WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="logo.png" alt="Escola Granja Viana" onerror="this.style.display='none'" /></div>
+    <p>Escola Granja Viana &middot; Granja Viana, Cotia &ndash; SP &middot; (11) 4617-2777 &middot; <a href="mailto:atendimento@egv.com.br">atendimento@egv.com.br</a></p>
+    <p style="margin-top:8px;"><a href="https://www.escolagranjaviana.com.br" target="_blank">www.escolagranjaviana.com.br</a></p>
+    <p style="margin-top:16px;opacity:.5;">&reg; Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/5511998165917?text=Oi!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Educa%C3%A7%C3%A3o%20Infantil%20da%20EGV." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white" width="30" height="30"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- RD Station Forms Script -->
+  <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+  <script type="text/javascript">
+    new RDStationForms('nova-lp-infantil-claude-48d0a8c43f89a366f79b', 'UA-131910150-1').createForm();
+  </script>
+
+  <!--
+    INTEGRACAO WHATSAPP + RD STATION
+    Dispara uma conversao no RD Station ao clicar em qualquer botao de WhatsApp.
+    - Com e-mail preenchido: vincula a conversao ao lead.
+    - Sem e-mail: registra o clique anonimamente nas metricas.
+  -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+
+          // Tenta capturar o e-mail digitado no formulario RD Station
+          var emailInput = document.querySelector(
+            '#nova-lp-infantil-claude-48d0a8c43f89a366f79b input[type="email"], ' +
+            '#nova-lp-infantil-claude-48d0a8c43f89a366f79b input[name="email"]'
+          );
+          var email = emailInput && emailInput.value.trim() ? emailInput.value.trim() : '';
+
+          // Monta o payload de conversao
+          var payload = {
+            event_type: 'CONVERSION',
+            event_family: 'CDP',
+            payload: {
+              conversion_identifier: 'clique-whatsapp-infantil'
+            }
+          };
+
+          // Inclui o e-mail apenas se foi preenchido
+          if (email) {
+            payload.payload.email = email;
+          }
+
+          // Envia a conversao para a API publica do RD Station
+          fetch('https://api.rd.guru/platform/conversions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(function () {
+            // Silencia erros de rede o clique no WhatsApp nao e bloqueado
+          });
+
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
